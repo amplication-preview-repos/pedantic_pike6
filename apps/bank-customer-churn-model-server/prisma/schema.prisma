@@ -1,0 +1,25 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Customer {
+  age              Int?
+  balance          Float?
+  churn            Boolean?
+  createdAt        DateTime @default(now())
+  creditScore      Int?
+  estimatedSalary  Float?
+  geography        String?
+  hasCreditCard    Boolean?
+  id               String   @id @default(cuid())
+  isActiveMember   Boolean?
+  numberOfProducts Int?
+  surname          String?
+  tenure           Int?
+  updatedAt        DateTime @updatedAt
+}
